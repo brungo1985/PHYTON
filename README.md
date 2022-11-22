@@ -1,107 +1,106 @@
 # PHYTON
-Programa de detcção de plagio em textos. COH-PIAH
+Text plagiarism detection program. COH-PIAH
 
 
-Exercício Conclusão curso Indrodução a ciência da computação com Python- Plataforma Coursera (USP), Módulo 1 - Python
+Exercise Completion course Introduction to computer science with Python - Plataforma Coursera (USP), Módulo 1 - Python
 
-Prólogo
-Neste último exercício da Parte 1, iremos praticar não só o que vimos até agora no curso mas também outra habilidade importante
-de um programador: utilizar e interagir com código escrito por terceiros. Aqui, você não irá implementar o seu programa do zero.
-Você irá partir de um programa já iniciado e irá completá-lo. Na verdade, esse é o caso mais comum na indústria de software,
-onde muitos desenvolvedores trabalham colaborativamente em um mesmo programa.
+Prologue
+In this last exercise in Part 1, we'll practice not only what we've seen so far in the course but also another important skill.
+of a programmer: using and interacting with code written by others. Here, you will not implement your program from scratch.
+You will start from an already started program and complete it. In fact, this is the most common case in the software industry,
+where many developers work collaboratively on the same program.
 
-Introdução 
-Manuel Estandarte é monitor na disciplina Introdução à Produção Textual I na Universidade de Pasárgada (UPA). Durante o período letivo,
-Manuel descobriu que uma epidemia de COH-PIAH estava se espalhando pela UPA. Essa doença rara e altamente contagiosa faz com que
-indivíduos contaminados produzam, involuntariamente, textos muito semelhantes aos de outras pessoas. Após a entrega da primeira redação,
-Manuel desconfiou que alguns alunos estavam sofrendo de COH-PIAH. Manuel, preocupado com a saúde da turma, resolveu buscar um método para
-identificar os casos de COH-PIAH. Para isso, ele necessita da sua ajuda para desenvolver um programa que o auxilie a identificar os alunos contaminados.
+Introduction
+Manuel Estandarte is a tutor in the subject Introduction to Textual Production I at the University of Pasárgada (UPA). During the school term,
+Manuel discovered that an epidemic of COH-PIAH was spreading across the UPA. This rare and highly contagious disease causes
+infected individuals unwittingly produce texts very similar to those of other people. After submitting the first essay,
+Manuel suspected that some students were suffering from COH-PIAH. Manuel, worried about the group's health, decided to look for a method to
+identify cases of COH-PIAH. For this, he needs your help to develop a program that will help him identify infected students.
 
-Detecção de autoria
-Diferentes pessoas possuem diferentes estilos de escrita; por exemplo, algumas pessoas preferem sentenças mais curtas, outras preferem sentenças
-mais longas. Utilizando diversas estatísticas do texto, é possível identificar aspectos que funcionam como uma “assinatura” do seu autor e,
-portanto, é possível detectar se dois textos dados foram escritos por uma mesma pessoa. Ou seja, essa “assinatura” pode ser utilizada para detecção
-de plágio, evidência forense ou, neste caso, para diagnosticar a grave doença COH-PIAH.
+Authorship detection
+Different people have different writing styles; for example, some people prefer shorter sentences, others prefer shorter sentences.
+longer. Using various statistics of the text, it is possible to identify aspects that act as a “signature” of its author and,
+therefore, it is possible to detect whether two given texts were written by the same person. That is, this “signature” can be used for detection
+of plagiarism, forensic evidence or, in this case, to diagnose the serious illness COH-PIAH.
 
-Traços linguísticos
-Neste exercício utilizaremos as seguintes estatísticas para detectar a doença:
+Linguistic traits
+In this exercise we will use the following statistics to detect the disease:
 
-*   Tamanho médio de palavra:         Média simples do número de caracteres por palavra.
+*  Average Word Length: Simple average of the number of characters per word.
 
-*   Relação Type-Token:               Número de palavras diferentes utilizadas em um texto divididas pelo total de palavras.
+*  Type-Token Ratio: Number of different words used in a text divided by the total number of words.
 
-*   Razão Hapax Legomana:             Número de palavras utilizadas uma única vez dividido pelo número total de palavras.
+*  Hapax Legomana Ratio: Number of words used once divided by the total number of words.
 
-*   Tamanho médio de sentença:        Média simples do número de caracteres por sentença.
+*  Average Sentence Length: Simple average of the number of characters per sentence.
 
-*   Complexidade de sentença:         Média simples do número de frases por sentença.
+*  Sentence complexity: Simple average of the number of sentences per sentence.
 
-*   Tamanho médio de frase:           Média simples do número de caracteres por frase.
+*  Average sentence length: Simple average of the number of characters per sentence.
 
-Funcionamento do programa
-A partir da assinatura conhecida de um portador de COH-PIAH, seu programa deverá receber diversos textos e calcular os valores dos diferentes
-traços linguísticos desses textos para compará-los com a assinatura dada. Os traços linguísticos que seu programa deve utilizar são calculados
-da seguinte forma:
+Program operation
+From the known signature of a COH-PIAH carrier, your program should receive several texts and calculate the values ​​of the different
+linguistic traits of these texts to compare them with the given signature. The linguistic features your program should use are calculated
+this way:
 
-*   Tamanho médio de palavra é a soma dos tamanhos das palavras dividida pelo número total de palavras.
-*   Relação Type-Token é o número de palavras diferentes dividido pelo número total de palavras. Por exemplo, na frase "O gato caçava o rato",
-    temos 5 palavras no total (o, gato, caçava, o, rato) mas somente 4 diferentes (o, gato, caçava, rato). Nessa frase, a relação Type-Token vale
+*   Average word length is the sum of the word lengths divided by the total number of words.
+* Type-Token Ratio is the number of different words divided by the total number of words. For example, in the sentence "The cat hunted the mouse",
+    we have 5 words in total (the, cat, hunted, the, mouse) but only 4 different ones (the, cat, hunted, mouse). In this sentence, the Type-Token relationship is worth
     5/5 = 0.8
-*   Razão Hapax Legomana é o número de palavras que aparecem uma única vez dividido pelo total de palavras. Por exemplo, na frase "O gato caçava o rato",
-    temos 5 palavras no total (o, gato, caçava, o, rato) mas somente 3 que aparecem só uma vez (gato, caçava, rato). Nessa frase, a relação Hapax Legomana
-    vale 3/5 = 0.6
-*   Tamanho médio de sentença é a soma dos números de caracteres em todas as sentenças dividida pelo número de sentenças (os caracteres que separam uma
-    sentença da outra não devem ser contabilizados como parte da sentença).
-*   Complexidade de sentença é o número total de frases divido pelo número de sentenças.
+* Hapax Legomana ratio is the number of words appearing only once divided by the total number of words. For example, in the sentence "The cat hunted the mouse",
+    we have 5 words in total (the, cat, hunted, the, mouse) but only 3 that appear only once (cat, hunted, mouse). In this sentence, the relation Hapax Legomana
+    worth 3/5 = 0.6
+* Average sentence length is the sum of the number of characters in all sentences divided by the number of sentences (the characters separating a
+    sentence of the other shall not be counted as part of the sentence).
+* Sentence complexity is the total number of sentences divided by the number of sentences.
 
-*   Tamanho médio de frase é a soma do número de caracteres em cada frase dividida pelo número de frases no texto  (os caracteres que separam uma frase
-    da outra não devem ser contabilizados como parte da frase).
+*  Average sentence length is the sum of the number of characters in each sentence divided by the number of sentences in the text (the characters that separate a sentence
+    of the other shall not be counted as part of the sentence).
 
-Após calcular esses valores para cada texto, você deve compará-los com a assinatura fornecida para os infectados por COH-PIAH. O grau de similaridade
-entre dois textos,  a e b, é dado pela fórmula:
+After calculating these values for each text, you must compare them with the signature provided for those infected with COH-PIAH. The degree of similarity
+between two texts, a and b, is given by the formula:
 
        S_{ab} = ((∑{i=1 6}) * ∣∣f_{i,a} - f_{i,b}∣∣) / 6
 
-*   S_{ab}        é o grau de similaridade entre os textos  a e b;
-*   f_{i,a}       é o valor de cada traço linguístico  i no texto  a;
-*   f_{i,b}       é o valor de cada traço linguístico  i no texto  b;
+*  S_{ab} is the degree of similarity between texts a and b;
+* f_{i,a} is the value of each linguistic feature i in text a;
+* f_{i,b} is the value of each linguistic feature i in text b;
 
 
-No nosso caso, o texto  b não é conhecido, mas temos a assinatura correspondente: a assinatura de um aluno infectado com COH-PIAH. Ou seja, sabemos o valor de
-f_{i,b} que é dado como valor de entrada do programa.
+In our case, the text b is not known, but we have the corresponding signature: the signature of a student infected with COH-PIAH. That is, we know the value of
+f_{i,b} which is given as the input value of the program.
 
-Caso você não esteja acostumado com a notação matemática, podemos destrinchar essa fórmula da seguinte maneira:
+In case you are not used to mathematical notation, we can break this formula down as follows:
 
-*   Para cada traço linguístico  i (tamanho médio da palavra, relação type-token etc.) se quer a diferença entre o valor obtido em cada texto dado (a) e o
-    valor típico do texto de uma pessoa infectada (b):  f_{i, a} - f_{i, b}
-*   essa diferença se toma o módulo (||...||), lembre-se da função abs do python.
-*   Somamos os resultados dos 6 traços linguísticos (∑(i=1 6))
-*   E por final dividimos por 6 (x/6)
+*   For each linguistic feature i (average word length, type-token ratio, etc.) we want the difference between the value obtained in each given text (a) and the
+    typical text value of an infected person (b): f_{i, a} - f_{i, b}
+* this difference takes the module (||...||), remember python's abs function.
+* We add the results of the 6 linguistic features (∑(i=1 6))
+* And finally we divide by 6 (x/6)
 
-Perceba que quanto mais similares  a e b forem, menor  S_{ab}será. Para cada texto, você deve calcular o grau de similaridade com a assinatura do portador
-de COH-PIAH e, no final, exibir qual texto mais provavelmente foi escrito por algum aluno infectado (ou seja, o texto com assinatura mais similar à assinatura dada).
+Note that the more similar a and b are, the smaller S_{ab} will be. For each text, you must calculate the degree of similarity with the bearer's signature
+of COH-PIAH and, at the end, display which text was most likely written by an infected student (that is, the text with the signature most similar to the given signature).
 
-Dica: não se preocupe com os detalhes de implementação das funções pré-prontas do esqueleto, como "separa_sentenca()", "separa_frase()" etc. nem com as definições
-exatas de frase e sentença. Essas funções já cuidam disso para você, e podem ser pensadas como "caixas pretas": você pode utilizá-las sabendo o que recebem e o
-que devolvem, mas não é necessário saber sobre os seus detalhes internos. Além de isso ser muito comum ao programar em equipe, usando essas funções você vai
-fazer o cálculo da maneira esperada pelo corretor automático.
+Hint: don't worry about the implementation details of pre-made skeleton functions, like "separa_sentenca()", "separa_frase()" etc. not even with the settings
+exact phrase and sentence. These functions already take care of that for you, and can be thought of as "black boxes": you can use them knowing what you get and what
+that they return, but it is not necessary to know about their internal details. In addition to this being very common when programming in a team, using these functions you will
+calculate as expected by the autocorrect.
 
-Cuidado: A função le_textos() considera que um "texto" é uma linha de texto, ou seja, não é possível inserir parágrafos separados. Se você digitar
-algum "enter", a função vai entender que você está começando um novo texto. Preste especial atenção a isso se usar "copiar/colar" para inserir os textos!
-Note também que, no cálculo de similaridade, é preciso encontrar o valor absoluto de cada uma das diferenças.
+Caution: The le_texts() function considers that a "text" is a line of text, that is, it is not possible to insert separate paragraphs. if you type
+some "enter", the function will understand that you are starting a new text. Pay special attention to this if using "copy/paste" to insert the texts!
+Note also that, in the similarity calculation, it is necessary to find the absolute value of each of the differences.
 
-Exemplo de Assinatura
-Um passo importante para seu programa é calcular a assinatura dos textos corretamente. Para testar se sua função calcula_assinatura()
-está correta, deixamos aqui um exemplo de execução:
+Signature Example
+An important step for your program is to correctly calculate the signature of the texts. To test whether your function computes_signature()
+is correct, here is an example of execution:
 
 
->texto = "Então resolveu ir brincar com a Máquina pra ser também imperador dos filhos da mandioca. Mas as três cunhas deram muitas risadas e falaram que isso de
-            deuses era gorda mentira antiga, que não tinha deus não e que com a máquina ninguém não brinca porque ela mata. A máquina não era deus não,
-            nem possuía os distintivos femininos de que o herói gostava tanto. Era feita pelos homens. Se mexia com eletricidade com fogo com água com vento
-            com fumo, os homens aproveitando as forças da natureza. Porém jacaré acreditou? nem o herói! Se levantou na cama e com um gesto, esse sim! bem
-            guaçu de desdém, tó! batendo o antebraço esquerdo dentro do outro dobrado, mexeu com energia a munheca direita pras três cunhas e partiu.
-            Nesse instante, falam, ele inventou o gesto famanado de ofensa: a pacova."
-            
+>text = "So he decided to go play with the Machine to also be emperor of the children of the cassava. But the three wedges laughed a lot and said that this
+            gods was a fat old lie, that there was no god and that nobody doesn't play with the machine because it kills. The machine was not a god,
+            nor did it possess the feminine badges the hero was so fond of. It was made by men. It moved with electricity with fire with water with wind
+            with smoke, men taking advantage of the forces of nature. But alligator believed? not the hero! He got up on the bed and with a gesture, that one! well
+            guaçu of disdain, tó! hitting his left forearm inside the other bent one, energetically moved his right wrist to three wedges and left.
+            At that moment, they say, he invented the famously offending gesture: the pacova."
 >calcula_assinatura(texto)
 >[4.507142857142857, 0.6928571428571428, 0.55, 70.81818181818181, 1.8181818181818181, 38.5]
 
